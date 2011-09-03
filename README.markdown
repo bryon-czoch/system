@@ -10,6 +10,6 @@ Open up a terminal and run the command below.
 
     bash < <(curl -s https://raw.github.com/davidtsadler/system/master/setup.sh)
 
-## Features
+## What it sets up
 
-TODO
+* Creates a `projects` directory within your home directory if one doesn't already exist.
