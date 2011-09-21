@@ -27,10 +27,10 @@ fi
 sudo apt-get update -y
 
 echo "Installing packages."
-sudo apt-get install xclip -y
+sudo apt-get install git git-doc git-gui git-man gitk xclip -y
 
 if [[ -f "$HOME/.ssh/id_rsa.pub" ]]; then
-  echo "Skipping generation of SSH key as one already exists."
+  echo "Skipping generation of SSH public key due to one already exists."
 else
   echo "Generating SSH key."
   ssh-keygen -t rsa
@@ -41,5 +41,14 @@ if [[ -f "$HOME/.ssh/id_rsa.pub" ]]; then
   xclip -selection clip < ~/.ssh/id_rsa.pub
   "$BROWSER" https://github.com/account/ssh
 fi
+
+echo "Configuring git globals."
+echo -n "Enter your name and press [ENTER]: "
+read name
+echo -n "Enter your email address and press [ENTER]: "
+read email
+
+git config --global user.name "$name"
+git config --global user.email "$email"
 
 exit 0
