@@ -38,7 +38,7 @@ fi
 
 if [[ -f "$HOME/.ssh/id_rsa.pub" ]]; then
   echo "Copying SSH public key to the clipboard. Paste it into your Github account."
-  cat "$HOME/.ssh/id_rsa.pub" | xclip
+  xclip -selection clip < ~/.ssh/id_rsa.pub
   "$BROWSER" https://github.com/account/ssh
 fi
 
