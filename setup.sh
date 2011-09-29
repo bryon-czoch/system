@@ -31,7 +31,7 @@ echo "Installing packages."
 # Required for installing most things.
 sudo apt-get install build-essential
 
-sudo apt-get install git git-doc git-gui git-man gitk xclip -y
+sudo apt-get install curl git git-doc git-gui git-man gitk xclip -y
 
 if [[ -f "$HOME/.ssh/id_rsa.pub" ]]; then
   echo "Skipping generation of SSH public key due to one already exists."
@@ -54,5 +54,8 @@ read email
 
 git config --global user.name "$name"
 git config --global user.email "$email"
+
+# Install rvm.
+bash < <(curl -s https://rvm.beginrescueend.com/install/rvm)
 
 exit 0
