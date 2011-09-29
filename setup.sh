@@ -27,6 +27,10 @@ fi
 sudo apt-get update -y
 
 echo "Installing packages."
+
+# Required for installing most things.
+sudo apt-get install build-essential
+
 sudo apt-get install git git-doc git-gui git-man gitk xclip -y
 
 if [[ -f "$HOME/.ssh/id_rsa.pub" ]]; then
