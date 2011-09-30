@@ -37,6 +37,9 @@ sudo apt-get install curl git git-doc git-gui git-man gitk xclip -y
 # Install vim and gvim.
 sudo apt-get install vim vim-gnome -y
 
+# I alias a few commands to aptitude.
+sudo apt-get install aptitude -y
+
 if [[ -f "$HOME/.ssh/id_rsa.pub" ]]; then
   echo "Skipping generation of SSH public key due to one already exists."
 else
