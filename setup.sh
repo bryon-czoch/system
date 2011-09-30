@@ -57,5 +57,9 @@ git config --global user.email "$email"
 
 # Install rvm.
 bash < <(curl -s https://rvm.beginrescueend.com/install/rvm)
+echo ""
+echo "To install ruby using rvm execute the following commands."
+echo "  source .bashrc"
+echo "  bash < <(curl -s https://raw.github.com/davidtsadler/system/master/ruby)"
 
 exit 0
