@@ -31,7 +31,11 @@ echo "Installing packages."
 # Required for installing most things.
 sudo apt-get install build-essential
 
+# Install git. Also install curl and xclip used by this script.
 sudo apt-get install curl git git-doc git-gui git-man gitk xclip -y
+
+# Install vim and gvim.
+sudo apt-get install vim vim-gnome -y
 
 if [[ -f "$HOME/.ssh/id_rsa.pub" ]]; then
   echo "Skipping generation of SSH public key due to one already exists."
