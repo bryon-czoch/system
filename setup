@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-#A Bash script for setting up a development enviroment on my computer.
+# A Bash script for setting up a development enviroment on my computer.
 
 ROOT_UID=0  # UID for root users
 E_ROOT=1  # Root exit error
