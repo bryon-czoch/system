@@ -40,6 +40,10 @@ sudo apt-get install vim vim-gnome -y
 # I alias a few commands to aptitude.
 sudo apt-get install aptitude -y
 
+# These packages are required by rvm for installing ruby correctly.
+# Use the command rvm requirements to show what is needed.
+sudo apt-get install openssl libreadline6 libreadline6-dev zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-0 libsqlite3-dev sqlite3 libxml2-dev libxslt-dev autoconf libc6-dev ncurses-dev automake libtool bison -y
+
 if [[ -f "$HOME/.ssh/id_rsa.pub" ]]; then
   echo "Skipping generation of SSH public key due to one already exists."
 else
