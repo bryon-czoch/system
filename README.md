@@ -19,3 +19,4 @@ Open up a terminal and run the commands below.
 * Installs git.
 * Configures the git globals name and email.
 * Installs rvm.
+* Installs aptitude.
