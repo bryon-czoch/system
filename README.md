@@ -10,7 +10,7 @@ Open up a terminal and run the commands below.
 
     sudo apt-get update -y
     sudo apt-get install curl -y
-    bash < <(curl -s https://raw.github.com/davidtsadler/system/master/setup)
+    bash <(curl -s https://raw.github.com/davidtsadler/system/master/setup)
 
 ## What it sets up
 
@@ -18,4 +18,4 @@ Open up a terminal and run the commands below.
 * SSH public keys if none exist.
 * Installs git.
 * Configures the git globals name and email.
-* Install rvm.
+* Installs rvm.
