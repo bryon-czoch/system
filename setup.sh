@@ -37,7 +37,7 @@ if [[ -f "$HOME/.ssh/id_rsa.pub" ]]; then
   echo "Skipping generation of SSH public key due to one already exists."
 else
   echo "Generating SSH key."
-  ssh-keygen -t rsa
+  ssh-keygen -t rsa -N "" -f "$HOME/.ssh/id_rsa"
 fi
 
 if [[ -f "$HOME/.ssh/id_rsa.pub" ]]; then
