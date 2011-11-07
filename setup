@@ -15,6 +15,14 @@ if [[ $EUID -eq 0 ]]; then
   exit $E_ROOT
 fi
 
+# Using apt-get so ensure it is up to date first.
+sudo apt-get update
+
+echo "Installing packages."
+
+# Install all required packages. See PACKAGE.md for the full list.
+sudo apt-get install build-essential curl git git-doc git-gui git-man gitk xclip vim vim-gnome aptitude openssl libreadline6 libreadline6-dev zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-0 libsqlite3-dev sqlite3 libxml2-dev libxslt-dev autoconf libc6-dev ncurses-dev automake libtool bison -y
+
 # Create a projects directory if one doesn't exist.
 if [[ -d "$PROJECTS_DIR" ]]; then
   echo "Skipping creating of directory $PROJECTS_DIR due to it already existing."
@@ -23,27 +31,7 @@ else
   mkdir "$PROJECTS_DIR"
 fi
 
-# Using apt-get so ensure it is up to date first.
-sudo apt-get update -y
-
-echo "Installing packages."
-
-# Required for installing most things.
-sudo apt-get install build-essential
-
-# Install git. Also install curl and xclip used by this script.
-sudo apt-get install curl git git-doc git-gui git-man gitk xclip -y
-
-# Install vim and gvim.
-sudo apt-get install vim vim-gnome -y
-
-# I alias a few commands to aptitude.
-sudo apt-get install aptitude -y
-
-# These packages are required by rvm for installing ruby correctly.
-# Use the command rvm requirements to show what is needed.
-sudo apt-get install openssl libreadline6 libreadline6-dev zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-0 libsqlite3-dev sqlite3 libxml2-dev libxslt-dev autoconf libc6-dev ncurses-dev automake libtool bison -y
-
+# Generate SSH public key.
 if [[ -f "$HOME/.ssh/id_rsa.pub" ]]; then
   echo "Skipping generation of SSH public key due to one already exists."
 else
@@ -51,12 +39,14 @@ else
   ssh-keygen -t rsa -N "" -f "$HOME/.ssh/id_rsa"
 fi
 
+# Copy public SSH key into the clipboard so that it can be pasted in the Github account.
 if [[ -f "$HOME/.ssh/id_rsa.pub" ]]; then
   echo "Copying SSH public key to the clipboard. Paste it into your Github account."
   xclip -selection clip < ~/.ssh/id_rsa.pub
   "$BROWSER" https://github.com/account/ssh
 fi
 
+# Configure the git globals name and email.
 echo "Configuring git globals."
 echo -n "Enter your name and press [ENTER]: "
 read name
@@ -66,7 +56,7 @@ read email
 git config --global user.name "$name"
 git config --global user.email "$email"
 
-# Install rvm.
+# Install rvm and show instructions for installing ruby via script.
 bash < <(curl -s https://rvm.beginrescueend.com/install/rvm)
 echo ""
 echo "To install ruby using rvm execute the following commands."
