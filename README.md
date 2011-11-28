@@ -16,5 +16,6 @@ Open up a terminal and run the command below.
 * SSH public keys if none exist.
 * Installs git.
 * Configures the git globals name and email.
-* Installs rvm.
 * Installs aptitude.
+* Installs rvm.
+* Installs ruby via rvm.
