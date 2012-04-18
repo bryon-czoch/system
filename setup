@@ -12,7 +12,7 @@ PROJECTS_DIR="$HOME/projects"
 BROWSER=`gconftool-2 --get '/desktop/gnome/url-handlers/http/command' | cut -f1 -d' ' `
 
 # The ruby version that will be installed via RVM.
-RUBY_VERSION='1.9.2-p290'
+RUBY_VERSION='1.9.3'
 
 if [[ $EUID -eq 0 ]]; then
   echo "You cannot run this script as root!"
