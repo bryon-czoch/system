@@ -2,7 +2,7 @@
 
 A Bash script for setting up a development enviroment on your computer.
 
-Assumes that you have installed Ubuntu 11.04 - the Natty Narwhal.
+Assumes that you have installed Ubuntu 12.04 (Precise Pangolin).
 
 ## Usage
 
