@@ -59,7 +59,7 @@ fi
 # Copy public SSH key into the clipboard so that it can be pasted in the Github account.
 if [[ -f "$HOME/.ssh/id_rsa.pub" ]]; then
   echo "Copying SSH public key to the clipboard. Paste it into your Github account."
-  xclip -selection clip < ~/.ssh/id_rsa.pub
+  xclip -selection clip < $HOME/.ssh/id_rsa.pub
   "$BROWSER" https://github.com/account/ssh
 fi
 
