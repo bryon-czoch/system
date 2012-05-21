@@ -13,9 +13,11 @@ Open up a terminal and run the command below.
 ## What it sets up
 
 * Creates a `projects` directory within your home directory if one doesn't already exist.
+* Creates a `local` directory within your home directory where binaries for the user can be installed.
 * SSH public keys if none exist.
 * Installs git.
 * Configures the git globals name and email.
 * Installs aptitude.
 * Installs rvm.
 * Installs ruby via rvm.
+* Installs node.js local to the user.

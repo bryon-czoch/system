@@ -14,6 +14,10 @@ The setup script installs a lot of packages via apt-get. Below is a list of what
 * git-man
 * gitk
 
+### NODE.JS
+
+* libssl-dev
+
 ### RUBY (via RVM)
 
 * build-essential 

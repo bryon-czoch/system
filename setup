@@ -14,9 +14,28 @@ BROWSER=`gconftool-2 --get '/desktop/gnome/url-handlers/http/command' | cut -f1 
 # The ruby version that will be installed via RVM.
 RUBY_VERSION='1.9.3'
 
+# The Node.js version that will be installed via git.
+NODE_VERSION='v0.6.18'
+
 if [[ $EUID -eq 0 ]]; then
   echo "You cannot run this script as root!"
   exit $E_ROOT
+fi
+
+# Create a projects directory if one doesn't exist.
+if [[ -d "$PROJECTS_DIR" ]]; then
+  echo "Skipping creating of directory $PROJECTS_DIR due to it already existing."
+else
+  echo "Creating directory $PROJECTS_DIR"
+  mkdir "$PROJECTS_DIR"
+fi
+
+# Create local directory for user binaries if one doesn't exist.
+if [[ -d "$LOCAL_DIR" ]]; then
+  echo "Skipping creating of directory $LOCAL_DIR due to it already existing."
+else
+  echo "Creating directory $LOCAL_DIR"
+  mkdir -p $LOCAL_DIR/{bin,src}
 fi
 
 # Using apt-get so ensure it is up to date first.
@@ -40,13 +59,15 @@ else
   exit $E_RVM
 fi
 
-# Create a projects directory if one doesn't exist.
-if [[ -d "$PROJECTS_DIR" ]]; then
-  echo "Skipping creating of directory $PROJECTS_DIR due to it already existing."
-else
-  echo "Creating directory $PROJECTS_DIR"
-  mkdir "$PROJECTS_DIR"
-fi
+# Install Node.js
+cd $LOCAL_DIR/src
+git clone git://github.com/joyent/node.git
+cd node
+git checkout $NODE_VERSION
+./configure --prefix=$LOCAL_DIR
+make
+make install
+echo 'PATH=$PATH:'$LOCAL_DIR/bin >> $HOME/.bashrc
 
 # Generate SSH public key.
 if [[ -f "$HOME/.ssh/id_rsa.pub" ]]; then
