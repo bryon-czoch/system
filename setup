@@ -37,6 +37,7 @@ if [[ -d "$LOCAL_DIR" ]]; then
 else
   echo "Creating directory $LOCAL_DIR"
   mkdir -p $LOCAL_DIR/{bin,src}
+  echo 'PATH=$PATH:'$LOCAL_DIR/bin >> $HOME/.bashrc
 fi
 
 # Using apt-get so ensure it is up to date first.
@@ -68,7 +69,6 @@ git checkout $NODE_VERSION
 ./configure --prefix=$LOCAL_DIR
 make
 make install
-echo 'PATH=$PATH:'$LOCAL_DIR/bin >> $HOME/.bashrc
 
 # Generate SSH public key.
 if [[ -f "$HOME/.ssh/id_rsa.pub" ]]; then
