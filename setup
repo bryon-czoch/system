@@ -16,7 +16,7 @@ BROWSER=`gconftool-2 --get '/desktop/gnome/url-handlers/http/command' | cut -f1 
 RUBY_VERSION='1.9.3'
 
 # The Node.js version that will be installed via git.
-NODE_VERSION='v0.8.4'
+NODE_VERSION='v0.8.14'
 
 if [[ $EUID -eq 0 ]]; then
   echo "You cannot run this script as root!"
