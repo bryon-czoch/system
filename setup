@@ -13,7 +13,7 @@ LOCAL_DIR="$HOME/local"
 BROWSER='x-www-browser'
 
 # The ruby version that will be installed via RVM.
-RUBY_VERSION='1.9.3'
+RUBY_VERSION='2.0.0-p247'
 
 # The Node.js version that will be installed via git.
 NODE_VERSION='v0.8.14'
