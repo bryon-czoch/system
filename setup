@@ -16,7 +16,7 @@ BROWSER='x-www-browser'
 RUBY_VERSION='2.0.0-p247'
 
 # The Node.js version that will be installed via git.
-NODE_VERSION='v0.8.14'
+NODE_VERSION='v0.10.16'
 
 if [[ $EUID -eq 0 ]]; then
   echo "You cannot run this script as root!"
