@@ -9,8 +9,8 @@ E_RVM=2     # RVM not installed error
 PROJECTS_DIR="$HOME/projects"
 LOCAL_DIR="$HOME/local"
 
-# Ask GNOME for the web browser command.
-BROWSER=`gconftool-2 --get '/desktop/gnome/url-handlers/http/command' | cut -f1 -d' ' `
+# Use this to launch default browser.
+BROWSER='x-www-browser'
 
 # The ruby version that will be installed via RVM.
 RUBY_VERSION='1.9.3'
